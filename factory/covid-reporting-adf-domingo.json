@@ -1,0 +1,9 @@
+{
+	"name": "covid-reporting-adf-domingo",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f2855483-8e02-44c5-b2bb-6ce1efa925ea",
+		"tenantId": "e8c3fa25-79c6-4ca8-9cfc-014e252bee24"
+	}
+}

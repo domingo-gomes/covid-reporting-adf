@@ -73,6 +73,26 @@
 						"value": "@equals(activity('Get File Metadata').output.columnCount,14)",
 						"type": "Expression"
 					},
+					"ifFalseActivities": [
+						{
+							"name": "Send failure email",
+							"type": "WebActivity",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "7.00:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"url": "https://sowhat.com",
+								"method": "POST",
+								"body": "What? Noooooooooo"
+							}
+						}
+					],
 					"ifTrueActivities": [
 						{
 							"name": "Copy population data",

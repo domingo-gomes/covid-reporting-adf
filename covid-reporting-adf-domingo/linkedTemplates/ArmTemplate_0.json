@@ -21,7 +21,7 @@
 		},
 		"ls_http_ecdc_covid_data_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://github.com"
+			"defaultValue": "https://raw.githubusercontent.com/"
 		},
 		"tr_load_population_date_properties_typeProperties_scope": {
 			"type": "string",
@@ -147,12 +147,20 @@
 					"referenceName": "ls_http_ecdc_covid_data",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"relativeURL": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "HttpServerLocation",
-						"relativeUrl": "cloudboxacademy/covid19/blob/main/raw/main/ecdc_data/cases_deaths.csv"
+						"relativeUrl": {
+							"value": "@dataset().relativeURL",
+							"type": "Expression"
+						}
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -174,12 +182,20 @@
 					"referenceName": "ls_adls_covidreportingdl",
 					"type": "LinkedServiceReference"
 				},
+				"parameters": {
+					"fileName": {
+						"type": "string"
+					}
+				},
 				"annotations": [],
 				"type": "DelimitedText",
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobFSLocation",
-						"fileName": "cases_deaths.csv",
+						"fileName": {
+							"value": "@dataset().fileName",
+							"type": "Expression"
+						},
 						"folderPath": "ecdc",
 						"fileSystem": "raw"
 					},
@@ -459,14 +475,24 @@
 							{
 								"referenceName": "ds_cases_deaths_raw_csv_http",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"relativeURL": {
+										"value": "@variables('SourceRelativeURL')",
+										"type": "Expression"
+									}
+								}
 							}
 						],
 						"outputs": [
 							{
 								"referenceName": "ds_cases_deaths_csv_dl",
 								"type": "DatasetReference",
-								"parameters": {}
+								"parameters": {
+									"fileName": {
+										"value": "@variables('SinkFileName')",
+										"type": "Expression"
+									}
+								}
 							}
 						]
 					}
@@ -475,6 +501,16 @@
 				"policy": {
 					"elapsedTimeMetric": {},
 					"cancelAfter": {}
+				},
+				"variables": {
+					"SourceRelativeURL": {
+						"type": "String",
+						"defaultValue": "cloudboxacademy/covid19/main/raw/main/ecdc_data/hospital_admissions.csv"
+					},
+					"SinkFileName": {
+						"type": "String",
+						"defaultValue": "hospital_admissions.csv"
+					}
 				},
 				"annotations": []
 			},

@@ -18,7 +18,7 @@
 			"value": "/subscriptions/b53a73c5-6231-4e92-8ee7-347b1df7b6fd/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/covidreportingsa690"
 		},
 		"ls_http_ecdc_covid_data_properties_typeProperties_url": {
-			"value": "https://github.com"
+			"value": "https://raw.githubusercontent.com/"
 		},
 		"containerUri": {
 			"value": ""

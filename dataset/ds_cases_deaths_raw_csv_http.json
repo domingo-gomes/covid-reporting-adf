@@ -5,6 +5,11 @@
 			"referenceName": "ls_http_ecdc_covid_data",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"relativeURL": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

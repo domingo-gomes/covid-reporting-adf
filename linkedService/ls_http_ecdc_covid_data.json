@@ -1,0 +1,13 @@
+{
+	"name": "ls_http_ecdc_covid_data",
+	"properties": {
+		"description": "Covid data from the ecdc website",
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "https://github.com",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

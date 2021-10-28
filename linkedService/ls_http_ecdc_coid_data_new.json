@@ -1,0 +1,17 @@
+{
+	"name": "ls_http_ecdc_coid_data_new",
+	"properties": {
+		"parameters": {
+			"SourceBaseURL": {
+				"type": "String"
+			}
+		},
+		"annotations": [],
+		"type": "HttpServer",
+		"typeProperties": {
+			"url": "@{linkedService().SourceBaseURL}",
+			"enableServerCertificateValidation": true,
+			"authenticationType": "Anonymous"
+		}
+	}
+}

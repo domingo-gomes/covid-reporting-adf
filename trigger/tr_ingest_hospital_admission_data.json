@@ -1,0 +1,17 @@
+{
+	"name": "tr_ingest_hospital_admission_data",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Day",
+				"interval": 1,
+				"startTime": "2021-10-28T04:25:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

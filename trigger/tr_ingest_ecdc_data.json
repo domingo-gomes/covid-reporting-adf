@@ -1,5 +1,5 @@
 {
-	"name": "tr_ingest_hospital_admission_data",
+	"name": "tr_ingest_ecdc_data",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
@@ -8,10 +8,6 @@
 				"pipelineReference": {
 					"referenceName": "pl_ingest_ecdc_data",
 					"type": "PipelineReference"
-				},
-				"parameters": {
-					"SourceRelativeURL": "cloudboxacademy/covid19/main/raw/main/ecdc_data/hospital_admissions.csv",
-					"SinkFileName": "hospital_admissions.csv"
 				}
 			}
 		],
@@ -20,7 +16,7 @@
 			"recurrence": {
 				"frequency": "Day",
 				"interval": 1,
-				"startTime": "2021-10-28T04:42:00Z",
+				"startTime": "2021-10-28T01:45:00Z",
 				"timeZone": "UTC"
 			}
 		}

@@ -14,20 +14,14 @@
 		"ls_adls_covidreportingdl_properties_typeProperties_url": {
 			"value": "https://covidreportingdldomingo.dfs.core.windows.net"
 		},
-		"tr_load_population_date_properties_typeProperties_scope": {
-			"value": "/subscriptions/b53a73c5-6231-4e92-8ee7-347b1df7b6fd/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/covidreportingsa690"
+		"ls_http_ecdc_coid_data_new_properties_typeProperties_url": {
+			"value": "@{linkedService().SourceBaseURL}"
 		},
 		"ls_http_ecdc_covid_data_properties_typeProperties_url": {
 			"value": "@{linkedService().SourceBaseURL}"
 		},
-		"tr_ingest_hospital_admission_data_properties_pl_ingest_ecdc_data_parameters_SourceRelativeURL": {
-			"value": "cloudboxacademy/covid19/main/raw/main/ecdc_data/hospital_admissions.csv"
-		},
-		"tr_ingest_hospital_admission_data_properties_pl_ingest_ecdc_data_parameters_SinkFileName": {
-			"value": "hospital_admissions.csv"
-		},
-		"ls_http_ecdc_coid_data_new_properties_typeProperties_url": {
-			"value": "@{linkedService().SourceBaseURL}"
+		"tr_load_population_date_properties_typeProperties_scope": {
+			"value": "/subscriptions/b53a73c5-6231-4e92-8ee7-347b1df7b6fd/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/covidreportingsa690"
 		}
 	}
 }

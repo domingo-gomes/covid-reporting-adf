@@ -102,11 +102,11 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"relativeURL": {
-											"value": "@item().sourceRelativeURL",
+											"value": "item().sourceRelativeURL  ",
 											"type": "Expression"
 										},
 										"baseURL": {
-											"value": "@item().sourceBaseURL",
+											"value": "item().sourceBaseURL",
 											"type": "Expression"
 										}
 									}
@@ -118,7 +118,7 @@
 									"type": "DatasetReference",
 									"parameters": {
 										"fileName": {
-											"value": "@item().sinkFileName",
+											"value": "item().sinkFileNameitem()",
 											"type": "Expression"
 										}
 									}

@@ -25,7 +25,7 @@
 		},
 		"ls_http_ecdc_covid_data_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com"
+			"defaultValue": "@{linkedService().SourceBaseURL}"
 		},
 		"tr_ingest_hospital_admission_data_properties_pl_ingest_ecdc_data_parameters_SourceRelativeURL": {
 			"type": "string",
@@ -34,6 +34,10 @@
 		"tr_ingest_hospital_admission_data_properties_pl_ingest_ecdc_data_parameters_SinkFileName": {
 			"type": "string",
 			"defaultValue": "hospital_admissions.csv"
+		},
+		"ls_http_ecdc_coid_data_new_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "@{linkedService().SourceBaseURL}"
 		},
 		"containerUri": {
 			"type": "string",
@@ -73,6 +77,9 @@
 					},
 					"ls_http_ecdc_covid_data_properties_typeProperties_url": {
 						"value": "[parameters('ls_http_ecdc_covid_data_properties_typeProperties_url')]"
+					},
+					"ls_http_ecdc_coid_data_new_properties_typeProperties_url": {
+						"value": "[parameters('ls_http_ecdc_coid_data_new_properties_typeProperties_url')]"
 					},
 					"tr_load_population_date_properties_typeProperties_scope": {
 						"value": "[parameters('tr_load_population_date_properties_typeProperties_scope')]"

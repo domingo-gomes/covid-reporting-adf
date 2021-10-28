@@ -25,7 +25,7 @@
 		},
 		"ls_http_ecdc_covid_data_properties_typeProperties_url": {
 			"type": "string",
-			"defaultValue": "https://raw.githubusercontent.com"
+			"defaultValue": "@{linkedService().SourceBaseURL}"
 		},
 		"tr_ingest_hospital_admission_data_properties_pl_ingest_ecdc_data_parameters_SourceRelativeURL": {
 			"type": "string",
@@ -34,6 +34,10 @@
 		"tr_ingest_hospital_admission_data_properties_pl_ingest_ecdc_data_parameters_SinkFileName": {
 			"type": "string",
 			"defaultValue": "hospital_admissions.csv"
+		},
+		"ls_http_ecdc_coid_data_new_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "@{linkedService().SourceBaseURL}"
 		}
 	},
 	"variables": {
@@ -377,6 +381,11 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"description": "Covid data from the ecdc website",
+				"parameters": {
+					"SourceBaseURL": {
+						"type": "String"
+					}
+				},
 				"annotations": [],
 				"type": "HttpServer",
 				"typeProperties": {
@@ -393,11 +402,20 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "ls_http_ecdc_covid_data",
-					"type": "LinkedServiceReference"
+					"referenceName": "ls_http_ecdc_coid_data_new",
+					"type": "LinkedServiceReference",
+					"parameters": {
+						"SourceBaseURL": {
+							"value": "@dataset().baseURL",
+							"type": "Expression"
+						}
+					}
 				},
 				"parameters": {
 					"relativeURL": {
+						"type": "string"
+					},
+					"baseURL": {
 						"type": "string"
 					}
 				},
@@ -419,7 +437,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/ls_http_ecdc_covid_data')]"
+				"[concat(variables('factoryId'), '/linkedServices/ls_http_ecdc_coid_data_new')]"
 			]
 		},
 		{
@@ -518,6 +536,10 @@
 									"relativeURL": {
 										"value": "@pipeline().parameters.SourceRelativeURL",
 										"type": "Expression"
+									},
+									"baseURL": {
+										"value": "@pipeline().parameters.SourceBaseURL",
+										"type": "Expression"
 									}
 								}
 							}
@@ -546,6 +568,9 @@
 						"type": "string"
 					},
 					"SinkFileName": {
+						"type": "string"
+					},
+					"SourceBaseURL": {
 						"type": "string"
 					}
 				},
@@ -589,6 +614,60 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/pl_ingest_ecdc_data')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ds_ecdc_filelist')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "ls_ablob_covidreportingsa690",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"fileName": "ecdc_file_list_for_2_files.json",
+						"container": "configs"
+					}
+				},
+				"schema": {
+					"type": "object",
+					"properties": {
+						"sourceRelativeURL": {
+							"type": "string"
+						},
+						"sinkFileName": {
+							"type": "string"
+						}
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/ls_ablob_covidreportingsa690')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/ls_http_ecdc_coid_data_new')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"parameters": {
+					"SourceBaseURL": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"type": "HttpServer",
+				"typeProperties": {
+					"url": "[parameters('ls_http_ecdc_coid_data_new_properties_typeProperties_url')]",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
 		}
 	]
 }

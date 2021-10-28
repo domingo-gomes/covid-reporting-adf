@@ -2,8 +2,14 @@
 	"name": "ds_ecdc_raw_csv_http",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "ls_http_ecdc_covid_data",
-			"type": "LinkedServiceReference"
+			"referenceName": "ls_http_ecdc_coid_data_new",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"SourceBaseURL": {
+					"value": "@dataset().baseURL",
+					"type": "Expression"
+				}
+			}
 		},
 		"parameters": {
 			"relativeURL": {

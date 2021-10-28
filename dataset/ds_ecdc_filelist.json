@@ -10,13 +10,16 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
-				"fileName": "ecdc_file_list_for_2_files.json",
+				"fileName": "ecdc_file_list.json",
 				"container": "configs"
 			}
 		},
 		"schema": {
 			"type": "object",
 			"properties": {
+				"sourceBaseURL": {
+					"type": "string"
+				},
 				"sourceRelativeURL": {
 					"type": "string"
 				},

@@ -80,6 +80,9 @@
 			},
 			"SinkFileName": {
 				"type": "string"
+			},
+			"SourceBaseURL": {
+				"type": "string"
 			}
 		},
 		"annotations": []

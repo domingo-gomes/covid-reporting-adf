@@ -55,6 +55,10 @@
 							"relativeURL": {
 								"value": "@pipeline().parameters.SourceRelativeURL",
 								"type": "Expression"
+							},
+							"baseURL": {
+								"value": "@pipeline().parameters.SourceBaseURL",
+								"type": "Expression"
 							}
 						}
 					}

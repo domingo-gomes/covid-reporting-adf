@@ -18,7 +18,7 @@
 					"name": "SelectRequiredColumsn"
 				}
 			],
-			"script": "source(output(\n\t\tcountry as string,\n\t\tindicator as string,\n\t\tdate as date,\n\t\tyear_week as string,\n\t\tvalue as double,\n\t\tsource as string,\n\t\turl as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> GetRawData\nGetRawData select(mapColumn(\n\t\tcountry,\n\t\tindicator,\n\t\tdate,\n\t\tyear_week,\n\t\tvalue,\n\t\tsource,\n\t\teach(match(name=='date'),\n\t\t\t'reported_' + $$ = $$)\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> SelectRequiredColumsn"
+			"script": "source(output(\n\t\tcountry as string,\n\t\tindicator as string,\n\t\tdate as date,\n\t\tyear_week as string,\n\t\tvalue as double,\n\t\tsource as string,\n\t\turl as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> GetRawData\nGetRawData select(mapColumn(\n\t\tcountry,\n\t\tindicator,\n\t\tyear_week,\n\t\tvalue,\n\t\tsource,\n\t\teach(match(name=='date'),\n\t\t\t'reported_' + $$ = $$)\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> SelectRequiredColumsn"
 		}
 	}
 }

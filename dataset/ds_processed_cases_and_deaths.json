@@ -10,7 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"folderPath": "ecdc_cases_and_deaths",
+				"folderPath": "ecdc/cases_deaths",
 				"fileSystem": "processed"
 			},
 			"columnDelimiter": ",",

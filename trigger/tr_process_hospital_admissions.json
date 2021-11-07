@@ -1,0 +1,17 @@
+{
+	"name": "tr_process_hospital_admissions",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2021-11-07T10:53:00Z",
+				"timeZone": "UTC"
+			}
+		}
+	}
+}

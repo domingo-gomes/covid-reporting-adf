@@ -26,7 +26,7 @@
 		"ls_http_ecdc_covid_data_properties_typeProperties_url": {
 			"value": "@{linkedService().SourceBaseURL}"
 		},
-		"tr_load_population_date_properties_typeProperties_scope": {
+		"tr_population_data_arrived_properties_typeProperties_scope": {
 			"value": "/subscriptions/b53a73c5-6231-4e92-8ee7-347b1df7b6fd/resourceGroups/covid-reporting-rg/providers/Microsoft.Storage/storageAccounts/covidreportingsa690"
 		}
 	}

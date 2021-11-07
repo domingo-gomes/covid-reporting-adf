@@ -2,7 +2,7 @@
 	"name": "tr_process_cases_and_deaths",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Hour",
@@ -17,7 +17,7 @@
 				{
 					"type": "TumblingWindowTriggerDependencyReference",
 					"referenceTrigger": {
-						"referenceName": "tr_ingerst_ecdc_data",
+						"referenceName": "tr_ingest_ecdc_data",
 						"type": "TriggerReference"
 					}
 				}

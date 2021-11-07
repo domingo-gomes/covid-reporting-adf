@@ -120,13 +120,7 @@
 						"type": "SecureString",
 						"value": "[parameters('ls_databricks_covidcluster_accessToken')]"
 					},
-					"newClusterNodeType": "Standard_DS3_v2",
-					"newClusterNumOfWorker": "1",
-					"newClusterSparkEnvVars": {
-						"PYSPARK_PYTHON": "/databricks/python3/bin/python3"
-					},
-					"newClusterVersion": "7.3.x-scala2.12",
-					"newClusterInitScripts": []
+					"existingClusterId": "1107-090330-l9d5tv68"
 				}
 			},
 			"dependsOn": []

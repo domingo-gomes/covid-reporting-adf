@@ -1,11 +1,11 @@
 {
-	"name": "tr_ingerst_ecdc_data",
+	"name": "tr_ingest_ecdc_data",
 	"properties": {
 		"annotations": [],
 		"runtimeState": "Started",
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
-			"frequency": "Minute",
+			"frequency": "Hour",
 			"interval": 24,
 			"startTime": "2021-11-06T00:00:00Z",
 			"delay": "00:00:00",
